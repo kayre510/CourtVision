@@ -3,7 +3,7 @@ import os
 import json
 from playerfunction import player_comparison
 from nba_api.stats.static import teams
-from nba_api.stats.endpoints import commonteamroster
+from nba_api.stats.endpoints import commonteamroster, LeagueLeaders
 
 app = Flask(__name__)
 
@@ -43,3 +43,11 @@ def roster(team_name):
                 players.append({'name': row['PLAYER'], 'number': row['NUM'], 'position': row['POSITION']})
             return jsonify({'team': team['full_name'], 'players': players})
     return jsonify({'error': 'Team not found'}), 404
+
+
+@app.route('/top_ten_players/<season>/<category>')
+def get_top_ten_players(season, category):
+    season = season.strip('<>')
+    league_leaders = LeagueLeaders(season=season, per_mode48="PerGame", stat_category_abbreviation=category)
+    top_ten = league_leaders.get_data_frames()[0].head(10)
+    return jsonify(top_ten.to_dict(orient='records'))
