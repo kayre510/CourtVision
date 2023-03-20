@@ -4,8 +4,7 @@ import json
 import requests
 from requests.exceptions import HTTPError
 from todays_boxscore import today_games_dict, game_id_list, endpoint
-
-print(game_id_list)
+from leaguestandings import nba_dict
 app = Flask(__name__)
 
 
@@ -44,5 +43,19 @@ def get_boxscore_by_id(game_id=None):
     try:
         response = requests.get(url)
         return response.json()
-    except HTTPError:
+    except HTTPError or KeyError:
         return({"Message": "Wrong game id"})
+
+
+#get all league standings
+@app.route("/league_standings")
+def get_all_league_standings():
+    return jsonify(nba_dict)
+
+#get a specific league standing
+@app.route("/league_standings/<city>")
+def get_league_standing(city):
+    try:
+        return jsonify(nba_dict[city])
+    except KeyError or HTTPError:
+        return({"Message": "Enter a city name"})

@@ -9,4 +9,3 @@ score = scoreboard.ScoreBoard()
 
 today_score = score.get_dict()
 
-print(today_score)
