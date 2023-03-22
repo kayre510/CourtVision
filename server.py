@@ -1,5 +1,5 @@
-
-from flask import Flask, jsonify, request
+import requests
+from flask import Flask, jsonify,request
 import os
 import json
 from playerfunction import player_comparison
@@ -25,18 +25,19 @@ def home():
 
 with open(json_file_path) as f:
     players = json.load(f)
+
 @app.route("/players")
 def get_all_players():
     return jsonify(players)
 
-@app.route("/player/<player_name>")
+@app.route("/players/<player_name>")
 def get_player(player_name):
     for player in players:
-        if player["Player"].lower() == player_name.lower():
+        if player["Player"]== player_name:
             return jsonify(player)
 
 #get all of today's boxscores
-@app.route("/boxscores")
+@app.route("/boxscore")
 def get_boxscores():
     return jsonify(today_games_dict)
 
@@ -65,9 +66,6 @@ def get_league_standing(city):
         return({"Message": "Enter a city name"})
 
 
-@app.route('/players')
-def get_all_players():
-    return jsonify(players)
 
 @app.route('/compare-players')
 def compare_players():
@@ -98,3 +96,5 @@ def get_top_ten_players(season, category):
     league_leaders = LeagueLeaders(season=season, per_mode48="PerGame", stat_category_abbreviation=category)
     top_ten = league_leaders.get_data_frames()[0].head(10)
     return jsonify(top_ten.to_dict(orient='records'))
+
+#
