@@ -9,7 +9,7 @@ from todays_boxscore import today_games_dict, game_id_list, endpoint
 from leaguestandings import nba_dict
 from nba_api.stats.static import teams
 from nba_api.stats.endpoints import commonteamroster, LeagueLeaders
-from players import player_data_sorted, player_dict
+from players import player_dict
 app = Flask(__name__)
 CORS(app)
 
