@@ -1,8 +1,8 @@
-import React, { useState, useEffect} from 'react';
-import axios from 'axios';
+import React from 'react';
+
 
 function TeamSelection() {
-    const [teams, setTeams] = useState([]);
+    // const [teams, setTeams] = useState([]);
     return (
         <div>
             <h2>Select a Team</h2>

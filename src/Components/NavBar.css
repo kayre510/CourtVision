@@ -1,0 +1,35 @@
+.nav-bar-container {
+    width: 100%;
+    font-weight: bold;
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+    font-family: "Roboto", arial, sans-serif;
+    background: black;
+    box-sizing: border-box 20px solid;
+    align-items: center;
+  }
+
+
+  .nav-bar-container ul {
+    display: flex;
+    padding: 0;
+    margin: 0;
+    justify-content: center;
+    flex-grow: 1;
+  }
+
+  .nav-bar-container li {
+    margin-right: 2rem;
+  }
+
+  .basketball-logo {
+    width: 50px;
+    height: 50px;
+    border-radius: 180px;
+  }
+
+  .basketball-logo:hover {
+    transform:scale(1.2);
+    cursor: pointer;
+  }
