@@ -19,7 +19,6 @@ def get_player_stats(player_name):
     return None
 
 stats = get_player_stats('LeBron James')
-print(stats)
 
 
 def player_comparison(player1_name, player2_name, stat_category):
@@ -51,5 +50,3 @@ def player_comparison(player1_name, player2_name, stat_category):
         return f"{player1_stats['Player']} and {player2_stats['Player']} have the same {stat_category} stats"
 
 print(player_comparison('Devin Booker', 'Tyrese Haliburton', 'PTS'))
-
-
