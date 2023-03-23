@@ -5,8 +5,9 @@ function OneVOne() {
   const [players, setPlayers] = useState([]);
   const [player1, setPlayer1] = useState("");
   const [player2, setPlayer2] = useState("");
-  const [stat_category, setStatCategory] = useState(["PTS", "TRB", "AST"]);
+  const [stat_category, setStatCategory] = useState("");
 
+  const categories = ["PTS", "REB", "AST"]
   const handlePlayer1Change = (event) => {
     setPlayer1(event.target.value);
   };
@@ -17,8 +18,10 @@ function OneVOne() {
 
   const statCategoryChange = (event) => {
     let value = event.target.value;
-    setStatCategory([value])
+    setStatCategory(value)
   };
+
+
   useEffect(() => {
     axios
       .get("http://127.0.0.1:5000/players")
@@ -30,9 +33,9 @@ function OneVOne() {
       });
   }, []);
 
-  useEffect(() => {
+  function getResults() {
     axios
-      .get("http://127.0.0.1:5000/compare-players", {
+      .get(`http://127.0.0.1:5000/compare-players?player1_name=${player1}&player2_name=${player2}&stat_category=${stat_category}`, {
         params: {
           player1: player1,
           player2: player2,
@@ -45,7 +48,7 @@ function OneVOne() {
       .catch((err) => {
         console.log(err);
       });
-  }, [player1, player2, stat_category]);
+  }
 
   return (
     <>
@@ -62,12 +65,12 @@ function OneVOne() {
         </select>
       </div>
       <select onChange={statCategoryChange}>
-        {stat_category.map((stat, index) => (
+        {categories.map((stat, index) => (
           <option>{stat}</option>
         ))}
       </select>
       <div className="face-off">
-        <button className="face-off-button">Face Off</button>
+        <button className="face-off-button" onClick={getResults}>Face Off</button>
       </div>
     </>
   );

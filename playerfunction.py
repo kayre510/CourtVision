@@ -46,4 +46,4 @@ def player_comparison(player1_name, player2_name, stat_category):
     else:
         return f"{player1_stats['Player']} and {player2_stats['Player']} have the same {stat_category} stats"
 
-print(player_comparison('LeBron James', 'Tyrese Haliburton', 'PTS'))
+print(player_comparison('Austin Reaves', 'Clint Capela', 'REB'))
