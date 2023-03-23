@@ -33,7 +33,7 @@ def get_all_players():
 @app.route("/players/<player_name>")
 def get_player(player_name):
     for player in players:
-        if player["Player"]== player_name:
+        if player["Player"] == player_name:
             return jsonify(player)
 
 #get all of today's boxscores
