@@ -1,3 +1,4 @@
+
 import json
 with open('player_stats.json') as f:
     players = json.load(f)
@@ -51,5 +52,3 @@ def player_comparison(player1_name, player2_name, stat_category):
         return f"{player1_stats['Player']} and {player2_stats['Player']} have the same {stat_category} stats"
 
 print(player_comparison('Devin Booker', 'Tyrese Haliburton', 'PTS'))
-
-

@@ -1,5 +1,6 @@
 import requests
 from flask import Flask, jsonify,request
+from flask_cors import CORS
 import os
 import json
 from playerfunction import player_comparison
@@ -10,6 +11,8 @@ from nba_api.stats.static import teams
 from nba_api.stats.endpoints import commonteamroster, LeagueLeaders
 
 app = Flask(__name__)
+CORS(app, origins=['http://localhost:3001'])
+
 
 
 origins = [
@@ -27,7 +30,13 @@ with open(json_file_path) as f:
     players = json.load(f)
 
 @app.route("/players")
-def get_all_players():
+def get_all_players_stats():
+    stats = LeagueLeaders(season='2022-23', season_type_all_star='Regular Season', per_mode48='PerGame')
+    data = stats.get_data_frames()[0]
+    # Rename columns to snake_case for consistency and easier parsing in JSON
+    data.columns = [col.lower() for col in data.columns]
+    # Convert dataframe to a list of dictionaries for JSON serialization
+    players = data.to_dict('records')
     return jsonify(players)
 
 @app.route("/players/<player_name>")
@@ -96,6 +105,3 @@ def get_top_ten_players(season, category):
     league_leaders = LeagueLeaders(season=season, per_mode48="PerGame", stat_category_abbreviation=category)
     top_ten = league_leaders.get_data_frames()[0].head(10)
     return jsonify(top_ten.to_dict(orient='records'))
-
-#################################################
-########################
