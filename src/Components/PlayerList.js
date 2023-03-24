@@ -16,11 +16,11 @@ function PlayerList() {
       <h1>NBA Players</h1>
       <ul>
         {players.map(player => (
-            <div key={player.Player}>
-                <p>{player.Player}</p>
+            <div key={player.playerName}>
+                <p>{player.player}</p>
                 <p>{player.Age}</p>
                 <p>{player.Pos}</p>
-                <p>{player.Tm}</p>
+                <p>{player.team}</p>
             </div>
         ))}
       </ul>
