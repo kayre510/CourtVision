@@ -9,11 +9,15 @@ from todays_boxscore import today_games_dict, game_id_list, endpoint
 from leaguestandings import nba_dict
 from nba_api.stats.static import teams
 from nba_api.stats.endpoints import commonteamroster, LeagueLeaders
-
+from players import player_dict
 app = Flask(__name__)
+<<<<<<< HEAD
 CORS(app, origins=['http://localhost:3001'])
 
 
+=======
+CORS(app)
+>>>>>>> main
 
 origins = [
     "http://localhost:8000",
@@ -26,10 +30,9 @@ json_file_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'player
 def home():
     return ("<h1>Welcome to NBA H2H</h1>")
 
-with open(json_file_path) as f:
-    players = json.load(f)
 
 @app.route("/players")
+<<<<<<< HEAD
 def get_all_players_stats():
     stats = LeagueLeaders(season='2022-23', season_type_all_star='Regular Season', per_mode48='PerGame')
     data = stats.get_data_frames()[0]
@@ -38,12 +41,16 @@ def get_all_players_stats():
     # Convert dataframe to a list of dictionaries for JSON serialization
     players = data.to_dict('records')
     return jsonify(players)
+=======
+def players():
+    return jsonify(player_dict)
+>>>>>>> main
 
 @app.route("/players/<player_name>")
 def get_player(player_name):
-    for player in players:
-        if player["Player"] == player_name:
-            return jsonify(player)
+    for k, v in player_dict.items():
+        if k == player_name:
+            return jsonify(v)
 
 #get all of today's boxscores
 @app.route("/boxscore")

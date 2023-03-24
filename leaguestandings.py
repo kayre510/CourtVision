@@ -28,5 +28,3 @@ for index, row in league_standings.iterrows():
                  'Rank': row['PlayoffRank'],
     }
     nba_dict[team_city] = team_info
-
-print(nba_dict['Denver'])
