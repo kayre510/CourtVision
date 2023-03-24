@@ -1,5 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import * as NBAIcons from 'react-nba-logos';
 import axios from 'axios';
+import {teamAbbreviation} from './TeamAbbreviation';
+
+
+
 
 function Standings() {
   const [standings, setStandings] = useState([]);
@@ -17,17 +22,19 @@ function Standings() {
   const eastStandings = Object.values(standings).filter(teamData => teamData.Conference === "East").sort((a, b) => a.Rank - b.Rank);
   console.log(eastStandings)
   const westStandings = Object.values(standings).filter(teamData => teamData.Conference === "West").sort((a, b) => a.Rank - b.Rank);
+  console.log(westStandings)
+
 
 
   return (
     <div>
       <h2>Eastern Conference</h2>
-      <table>
+      <table className='table'>
         <thead>
           <tr>
             <th>Team Name</th>
             <th>Record</th>
-            <th>Win Percentage</th>
+            <th>Win%</th>
             <th>Standing</th>
             <th>Win Streak</th>
             <th>Last 10 Games</th>
@@ -38,7 +45,7 @@ function Standings() {
         <tbody>
           {eastStandings.map(teamData => (
             <tr key={teamData['Team Name']}>
-              <td>{teamData['Team Name']}</td>
+              <td>{teamAbbreviation[teamData['Team Name']]} {teamData['Team Name']} </td>
               <td>{teamData['Record']}</td>
               <td>{teamData['WinPCT']}</td>
               <td>{teamData['Rank']}</td>
@@ -51,12 +58,12 @@ function Standings() {
         </tbody>
       </table>
       <h2>Western Conference</h2>
-      <table>
+      <table className='table'>
         <thead>
           <tr>
             <th>Team Name</th>
             <th>Record</th>
-            <th>Win Percentage</th>
+            <th>Win%</th>
             <th>Playoff Rank</th>
             <th>Win Streak</th>
             <th>Last 10 Games</th>
@@ -67,7 +74,7 @@ function Standings() {
         <tbody>
           {westStandings.map(teamData => (
             <tr key={teamData['Team Name']}>
-              <td>{teamData['Team Name']}</td>
+              <td>{teamAbbreviation[teamData['Team Name']]} {teamData['Team Name']}</td>
               <td>{teamData['Record']}</td>
               <td>{teamData['WinPCT']}</td>
               <td>{teamData['Playoff Rank']}</td>

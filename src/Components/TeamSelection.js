@@ -1,13 +1,8 @@
 import React from 'react';
+import * as NBAIcons from 'react-nba-logos';
 
+const Example = () => {
+  return <NBAIcons.TOR />; // Loads the Toronto Raptors logo
+};
 
-function TeamSelection() {
-    // const [teams, setTeams] = useState([]);
-    return (
-        <div>
-            <h2>Select a Team</h2>
-        </div>
-    )
-}
-
-export default TeamSelection;
+export default Example;
