@@ -4,32 +4,29 @@ with open('player_stats.json') as f:
 
 
 def get_player_stats(player_name):
-    for player in players:
-        if player['Player'] == player_name:
+    for player, values in players.items():
+        if player == player_name:
             stats = {
-                'Player': player['Player'],
-                'Pos': player['Pos'],
-                'Age': player['Age'],
-                'Team': player['Tm'],
-                'Points per Game': player['PTS'],
-                'Rebounds per Game': player['TRB'],
-                'Assists per Game': player['AST']
+                'Player': player,
+                'PTS': values['PTS'],
+                'REB': values['REB'],
+                'AST': values['AST']
             }
             return stats
     return None
 
 stats = get_player_stats('LeBron James')
 
-
+print(stats)
 def player_comparison(player1_name, player2_name, stat_category):
     player1_stats = None
     player2_stats = None
 
-    for player in players:
-        if player['Player'] == player1_name:
-            player1_stats = player
-        elif player['Player'] == player2_name:
-            player2_stats = player
+    for player, value in players.items():
+        if player == player1_name:
+            player1_stats = get_player_stats(player1_name)
+        elif player == player2_name:
+            player2_stats = get_player_stats(player2_name)
 
     if player1_stats is None:
         print(f"Could not find stats for {player1_name}")
@@ -49,4 +46,4 @@ def player_comparison(player1_name, player2_name, stat_category):
     else:
         return f"{player1_stats['Player']} and {player2_stats['Player']} have the same {stat_category} stats"
 
-print(player_comparison('Devin Booker', 'Tyrese Haliburton', 'PTS'))
+print(player_comparison('Austin Reaves', 'Clint Capela', 'REB'))

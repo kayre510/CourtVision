@@ -1,8 +1,25 @@
 from nba_api.stats.endpoints import LeagueLeaders
 import pandas as pd
-
+import os
 pd.set_option("display.max_columns", None)
 pd.set_option("display.max_rows", None)
+import os
+
+# get the absolute path to the current directory
+current_dir = os.path.abspath(os.path.dirname(__file__))
+
+# create the path to the photos directory relative to the current directory
+photos_dir = os.path.join(current_dir, "nba_player_headshots")
+
+
+#Photos
+
+
+photo_list = []
+for files in os.listdir(photos_dir):
+    photo_list.append(files)
+
+print(photo_list)
 
 # Define parameters
 season_year = "2022-23"
@@ -71,3 +88,17 @@ for index, row in player_data_sorted.iterrows():
         "PTS": row["PTS"],
     }
     player_dict[player_name] = player_info
+
+
+
+for player_name, player_info in player_dict.items():
+    photo_file_name = player_name + ".png"
+    if photo_file_name in photo_list:
+        player_info["photo"] = photo_file_name
+
+
+player_id_name = {}
+for index,row in player_data_sorted.iterrows():
+    player_name = row["PLAYER"]
+    id = row["PLAYER_ID"]
+    player_id_name[player_name] = id
