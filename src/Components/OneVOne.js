@@ -27,6 +27,7 @@ function OneVOne() {
       .get("http://127.0.0.1:5000/players")
       .then((response) => {
         setPlayers(response.data);
+        console.log(response.data)
       })
       .catch((err) => {
         console.log(err);
@@ -56,8 +57,10 @@ function OneVOne() {
         <select className="input-one" onChange={handlePlayer1Change}>
           {Object.values(players).map((player, index) => (
             <option key={index}>{player.name}</option>
+
           ))}
         </select>
+       
         <select className="input-two" onChange={handlePlayer2Change}>
           {Object.values(players).map((player, index) => (
             <option key={index}>{player.name}</option>
