@@ -36,7 +36,7 @@ function Standings() {
             <th>Record</th>
             <th>Win%</th>
             <th>Standing</th>
-            <th>Win Streak</th>
+            <th>Win/Loss Streak</th>
             <th>Last 10 Games</th>
             <th>Home Record</th>
             <th>Away Record</th>
@@ -64,8 +64,8 @@ function Standings() {
             <th>Team Name</th>
             <th>Record</th>
             <th>Win%</th>
-            <th>Playoff Rank</th>
-            <th>Win Streak</th>
+            <th>Standing</th>
+            <th>Win/Loss Streak</th>
             <th>Last 10 Games</th>
             <th>Home Record</th>
             <th>Away Record</th>
@@ -77,7 +77,7 @@ function Standings() {
               <td>{teamAbbreviation[teamData['Team Name']]} {teamData['Team Name']}</td>
               <td>{teamData['Record']}</td>
               <td>{teamData['WinPCT']}</td>
-              <td>{teamData['Playoff Rank']}</td>
+              <td>{teamData['Rank']}</td>
               <td>{teamData['CurrentStreak']}</td>
               <td>{teamData['L10']}</td>
               <td>{teamData['HOME']}</td>
