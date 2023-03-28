@@ -10,14 +10,11 @@ from leaguestandings import nba_dict
 from nba_api.stats.static import teams
 from nba_api.stats.endpoints import commonteamroster, LeagueLeaders
 from players import player_dict
+
 app = Flask(__name__)
-<<<<<<< HEAD
 CORS(app, origins=['http://localhost:3001'])
 
 
-=======
-CORS(app)
->>>>>>> main
 
 origins = [
     "http://localhost:8000",
@@ -32,19 +29,8 @@ def home():
 
 
 @app.route("/players")
-<<<<<<< HEAD
-def get_all_players_stats():
-    stats = LeagueLeaders(season='2022-23', season_type_all_star='Regular Season', per_mode48='PerGame')
-    data = stats.get_data_frames()[0]
-    # Rename columns to snake_case for consistency and easier parsing in JSON
-    data.columns = [col.lower() for col in data.columns]
-    # Convert dataframe to a list of dictionaries for JSON serialization
-    players = data.to_dict('records')
-    return jsonify(players)
-=======
 def players():
     return jsonify(player_dict)
->>>>>>> main
 
 @app.route("/players/<player_name>")
 def get_player(player_name):
