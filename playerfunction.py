@@ -18,7 +18,7 @@ def get_player_stats(player_name):
 
 stats = get_player_stats('LeBron James')
 
-print(stats)
+
 def player_comparison(player1_name, player2_name, stat_category):
     player1_stats = None
     player2_stats = None
