@@ -19,7 +19,6 @@ photo_list = []
 for files in os.listdir(photos_dir):
     photo_list.append(files)
 
-print(photo_list)
 
 # Define parameters
 season_year = "2022-23"
