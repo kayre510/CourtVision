@@ -7,5 +7,16 @@
 .face-off {
     display: flex;
     justify-content: center;
-    margin-top: 30vh;
+    justify-items: center;
+
+}
+
+.stat-input {
+    display: flex;
+    justify-content: center;
+    margin-top: 5rem;
+}
+
+.player-two-photo {
+
 }
