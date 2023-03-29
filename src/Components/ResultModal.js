@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
-export const ResultModal = (playerResult) => {
-  const [result, setResult] = useState("");
-  console.log(playerResult.result)
+export const ResultModal = (result) => {
 
 
   return (
@@ -10,7 +8,7 @@ export const ResultModal = (playerResult) => {
       <div className="card" style={{width: "18rem"}}>
         <div className="card-body">
           <p className="card-text">
-            {playerResult.result}
+            {result.result}
           </p>
         </div>
       </div>

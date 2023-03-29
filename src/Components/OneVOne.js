@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./OneVOne.css";
 import { ResultModal } from "./ResultModal";
+import { Dropdown } from "./Dropdown";
 
 function OneVOne() {
   const [player1, setPlayer1] = useState("");
@@ -9,12 +10,17 @@ function OneVOne() {
   const [stat_category, setStatCategory] = useState("");
   const [playerPhoto, setPlayerPhoto] = useState([]);
   const [resultModal, setResultModal] = useState(false);
-  const [result, setResult] = useState("")
-
+  const [result, setResult] = useState("");
+  const [searchValue, setSearchValue] = useState("");
+  const [selectedValue, setSelectedValue] = useState(null);
+  const [parentState, setParentState] = useState("")
+  const searchRef = useRef();
   const categories = ["PTS", "REB", "AST"];
+
 
   const handlePlayer1Change = (event) => {
     setPlayer1(event.target.value);
+    setParentState(event.target.value)
   };
 
   const handlePlayer2Change = (event) => {
@@ -25,6 +31,26 @@ function OneVOne() {
     let value = event.target.value;
     setStatCategory(value);
   };
+
+  const getPlayer = () => {
+      if (!searchValue) {
+        return playerPhoto;
+      }
+      return playerPhoto.filter((player) =>
+        player.name.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0)
+    };
+
+    const onItemClick = (option) => {
+      setSelectedValue(option);
+    };
+
+
+  useEffect(() => {
+    setSearchValue("");
+    if (searchRef.current) {
+      searchRef.current.focus();
+    }
+  }, []);
 
   useEffect(() => {
     axios
@@ -38,6 +64,7 @@ function OneVOne() {
           return { name, photo };
         });
         setPlayerPhoto(playersWithPhoto);
+
       })
       .catch((err) => {
         console.log(err);
@@ -59,8 +86,7 @@ function OneVOne() {
       .then((response) => {
         const results = response.data.result;
         console.log(results)
-        setResult(results)
-
+        setResult(results);
       })
       .catch((err) => {
         console.log(err);
@@ -69,17 +95,28 @@ function OneVOne() {
   console.log(getResults())
 
 
-
-
   return (
     <>
       <div className="input-container">
+
         <div className="input-one">
-          <select onChange={handlePlayer1Change}>
-            {Object.values(playerPhoto).map((player, index) => (
-              <option key={index}>{player.name}</option>
-            ))}
-          </select>
+          {/* <input
+            type="text"
+            value={handlePlayer1Change}
+            placeholder="Search for a player"
+            ref={searchRef}
+          /> */}
+            {/* <div className="autocomplete">
+              <div>
+                <select onChange={handlePlayer1Change}>
+                  {getPlayer().map((player, index) => (
+                    <option key={index}>{player.name}</option>
+                  ))}
+                </select>
+              </div>
+            </div> */}
+            <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." isSearchable onStateChange={setPlayer1} />
+
         </div>
         <div>
           {player1 && (
@@ -101,11 +138,12 @@ function OneVOne() {
           )}
         </div>
         <div>
-          <select onChange={handlePlayer2Change}>
+          {/* <select onChange={handlePlayer2Change}>
             {Object.values(playerPhoto).map((player, index) => (
               <option key={index}>{player.name}</option>
             ))}
-          </select>
+          </select> */}
+          <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." isSearchable onStateChange={setPlayer2} />
         </div>
       </div>
       <div className="stat-input">
@@ -114,13 +152,21 @@ function OneVOne() {
             <option key={stat}>{stat}</option>
           ))}
         </select>
+
       </div>
+
       <div className="face-off">
-        <button className="face-off-button" onClick={() => {setResultModal(prev => !prev)}}>
+        <button
+          className="face-off-button"
+          onClick={() => {
+            setResultModal((prev) => !prev);
+          }}
+        >
           Face Off
         </button>
-        {resultModal && <ResultModal closeResultModal={setResultModal} result={result}/>}
-
+        {resultModal && (
+          <ResultModal closeResultModal={setResultModal} result={result} />
+        )}
       </div>
     </>
   );
