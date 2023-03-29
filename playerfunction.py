@@ -46,9 +46,3 @@ def player_comparison(player1_name, player2_name, stat_category):
         return f"{player2_stats['Player']} has better {stat_category} stats than {player1_stats['Player']}"
     else:
         return f"{player1_stats['Player']} and {player2_stats['Player']} have the same {stat_category} stats"
-
-<<<<<<< HEAD
-print(player_comparison('Devin Booker', 'Tyrese Haliburton', 'PTS'))
-=======
-print(player_comparison('Austin Reaves', 'Clint Capela', 'REB'))
->>>>>>> main

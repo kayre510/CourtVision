@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 export const ResultModal = (playerResult) => {
-  const [result, setResult] = useState("");
   console.log(playerResult.result)
 
 
