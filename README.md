@@ -1,10 +1,17 @@
+# Start Up
+python -m flask --app server run --debug
+
+
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 React Pacakages:
  - https://www.npmjs.com/package/react-nba-logos?activeTab=readme
- 
+
 ## Available Scripts
 
 In the project directory, you can run:
