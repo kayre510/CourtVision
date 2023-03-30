@@ -1,19 +1,26 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import "./ResultModal.css"
 
-export const ResultModal = (playerResult) => {
-  const [result, setResult] = useState("");
-  console.log(playerResult.result)
+export const ResultModal = (result) => {
+
+  const handleCompare = () => {
+    window.location.reload()
+  }
+
 
 
   return (
-    <div>
+    <div className="modalBackground">
+    <div className="modalContainer" animation="fadeInAnimation ease 1s">
       <div className="card" style={{width: "18rem"}}>
         <div className="card-body">
           <p className="card-text">
-            {playerResult.result}
+            {result.result}
           </p>
         </div>
+        <button onClick={handleCompare}>Compare stats again</button>
       </div>
+    </div>
     </div>
   );
 };
