@@ -31,7 +31,7 @@ export const NavBar = () => {
             </li>
             <li>
               <NavLink
-                className="standings"
+                className="league-standings"
                 to="/standings"
                 aria-current="page"
               >
