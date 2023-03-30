@@ -20,6 +20,7 @@ function App() {
           <Route path="team_selection" element={<TeamSelection />} />
           <Route path="player_selection" element={<PlayerSelection />} />
           <Route path="standings" element={<Standings />} />
+          <Route path="players" element={<PlayerList />} />
         </Routes>
       </BrowserRouter>
     </>
