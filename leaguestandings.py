@@ -9,7 +9,7 @@ url = 'https://stats.nba.com/stats/leaguestandingsv3'
 league_standings_data = leaguestandingsv3.LeagueStandingsV3().get_data_frames()[0]
 
 
-league_standings = league_standings_data[['TeamCity', 'TeamName', 'Conference','WinPCT',"HOME","ROAD","L10","CurrentStreak", 'Record', 'PlayoffRank']]
+league_standings = league_standings_data[['TeamCity', 'TeamName', 'Conference','WinPCT',"HOME","ROAD","L10","CurrentStreak", 'Record', 'PlayoffRank', 'Division']]
 
 
 league_standings_dict = league_standings.to_dict()
@@ -26,5 +26,6 @@ for index, row in league_standings.iterrows():
                  'L10': row['L10'],
                  'CurrentStreak': row['CurrentStreak'],
                  'Rank': row['PlayoffRank'],
+                 'Division': row['Division'],
     }
     nba_dict[team_city] = team_info
