@@ -92,7 +92,7 @@ function OneVOne() {
         console.log(err);
       });
   }
-  console.log(getResults())
+
 
 
   return (
