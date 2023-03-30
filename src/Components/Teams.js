@@ -24,8 +24,8 @@ function Teams() {
     if (!divisions[division]) {
       divisions[division] = [];
     }
-    divisions[division].push(team);
-  });
+    divisions[division].push({ ...team, teamCity: teamName});  });
+
 
   return (
     <div>
@@ -36,8 +36,7 @@ function Teams() {
             <div className="division-name">{division}</div>
             {teams.map((team, index) => (
               <div key={index} className="team">
-                <div className="team-name">{team['Team Name']}</div>
-                <div className="team-abbrev">{teamAbbreviation[team['Team Name']]}</div>
+                <div className="team-name">{teamAbbreviation[team['Team Name']]} {team['teamCity']} {team['Team Name']}</div>
               </div>
             ))}
           </div>
