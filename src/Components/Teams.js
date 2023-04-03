@@ -199,3 +199,5 @@ function Teams() {
 }
 
 export default Teams;
+
+//Align logos with css
