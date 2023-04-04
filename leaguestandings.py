@@ -24,3 +24,4 @@ for index, row in league_standings.iterrows():
                  'Season ID': row['SeasonID'],
     }
     nba_dict[team_city] = team_info
+

@@ -5,7 +5,7 @@ import os
 import json
 from playerfunction import player_comparison
 from requests.exceptions import HTTPError
-from todays_boxscore import today_games_dict, game_id_list, endpoint
+from todays_boxscore import today_games_dict, endpoint, boxscore_dict
 from leaguestandings import nba_dict
 from nba_api.stats.static import teams
 from nba_api.stats.endpoints import commonteamroster, LeagueLeaders
@@ -38,7 +38,7 @@ def get_player(player_name):
 #get all of today's boxscores
 @app.route("/boxscore")
 def get_boxscores():
-    return jsonify(today_games_dict)
+    return jsonify(boxscore_dict)
 
 #get a boxscore
 @app.route("/boxscore/<game_id>")

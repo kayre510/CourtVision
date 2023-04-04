@@ -7,7 +7,7 @@ import { Dropdown } from "./Dropdown";
 function OneVOne() {
   const [player1, setPlayer1] = useState("");
   const [player2, setPlayer2] = useState("");
-  const [stat_category, setStatCategory] = useState("");
+  const [stat_category, setStatCategory] = useState("PTS");
   const [playerPhoto, setPlayerPhoto] = useState([]);
   const [resultModal, setResultModal] = useState(false);
   const [result, setResult] = useState("");
@@ -115,7 +115,7 @@ function OneVOne() {
                 </select>
               </div>
             </div> */}
-            <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." isSearchable onStateChange={setPlayer1} />
+            <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." onStateChange={setPlayer1} />
 
         </div>
         <div>
@@ -161,11 +161,12 @@ function OneVOne() {
           onClick={() => {
             setResultModal((prev) => !prev);
           }}
+          onChange={getResults()}
         >
           Face Off
         </button>
         {resultModal && (
-          <ResultModal closeResultModal={setResultModal} result={result} />
+          <ResultModal closeResultModal={setResultModal}  result={result}/>
         )}
       </div>
     </>

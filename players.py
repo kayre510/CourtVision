@@ -3,7 +3,6 @@ import pandas as pd
 import os
 pd.set_option("display.max_columns", None)
 pd.set_option("display.max_rows", None)
-import os
 
 # get the absolute path to the current directory
 current_dir = os.path.abspath(os.path.dirname(__file__))
