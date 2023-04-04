@@ -80,6 +80,7 @@
 // export default PlayerList;
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import "./PlayerList.css";
 
 function PlayerList() {
   const [players, setPlayers] = useState([]);
@@ -146,7 +147,7 @@ function PlayerList() {
               <td>
                 {playerPhoto.map((photo, index) => (
                   player.name === photo.name ? (
-                    <img key={index} src={photo.photo} alt="" />
+                    <img style={{backgroundSize:"50px"}}key={index} src={photo.photo} alt="" />
                   ) : null
                 ))}
               </td>
