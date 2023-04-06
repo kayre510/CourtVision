@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./Dropdown.css";
 
-export const Dropdown = ({ playerPhoto, placeHolder, isSearchable, onStateChange}) => {
+export const Dropdown = ({ playerPhoto, placeHolder, onStateChange}) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedValue, setSelectedValue] = useState(null);
   const [searchValue, setSearchValue] = useState("");
@@ -87,11 +87,11 @@ export const Dropdown = ({ playerPhoto, placeHolder, isSearchable, onStateChange
         {showMenu && (
 
         <div className="">
-            {isSearchable && (
+
                 <div className="search-box">
                     <input onChange={onSearch} value={searchValue} ref={searchRef} />
                     </div>
-            )}
+            
 
           {getOptions().map((player) => (
             <div

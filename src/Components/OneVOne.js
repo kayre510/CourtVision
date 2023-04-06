@@ -115,7 +115,7 @@ function OneVOne() {
                 </select>
               </div>
             </div> */}
-            <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." isSearchable onStateChange={setPlayer1} />
+            <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." onStateChange={setPlayer1} />
 
         </div>
         <div>

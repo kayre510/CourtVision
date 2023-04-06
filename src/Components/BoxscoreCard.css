@@ -1,0 +1,58 @@
+.modalContainer {
+    font-size: 16px;
+    width: 30%;
+    padding: 4rem 2rem;
+    border-radius: 0.8rem;
+    color: var(--light);
+    background: var(--background);
+    background-color: white;
+    box-shadow: 0.4rem 0.4rem 2.4rem 0.2rem hsla(235, 24%, 81%, 0.3);
+    overflow: hidden;
+    top: 30%;
+    position: absolute;
+    left: 35%;
+    animation: fadeInAnimation ease 1s;
+  }
+
+
+  .modalBackground {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1040;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(15px);
+    align-items: center;
+    justify-content: center;
+  }
+
+  @keyframes fadeInAnimation {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+
+.no-game {
+    font-family: "Roboto", arial, sans-serif;
+    display: flex;
+    justify-content: center;
+
+  }
+
+  .no-game-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 40vh;
+    font-size: 40px;
+  }
+
+  .matchpoints {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", arial, sans-serif;
+  }
