@@ -3,16 +3,26 @@
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 20px;
   }
-
-  .division {
+  @media (min-width: 768px) {
+    .teams-container {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .card {
     border: 1px solid #ddd;
     padding: 10px;
+    border-style: solid;
+    border-radius: 15px;
+    border-color:#EA0000;
+    justify-content: center;
   }
 
   .division-name {
     font-size: 1.5rem;
     font-weight: bold;
     margin-bottom: 10px;
+    justify-content: center;
+
   }
 
   .team {
@@ -27,4 +37,65 @@
     font-weight: bold;
     margin-bottom: 5px;
     display: flex;
+    align-items: center;
+
+  }
+  .player {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 10px;
+  }
+  .player:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+
+  .player-details {
+    margin-top: 10px;
+  }
+
+  .player-photo img {
+    width: 260px;
+    height: auto;
+  }
+  .player-name {
+    font-weight: bold;
+    font-size: 1.0rem;
+    margin-bottom: 5px;
+  }
+
+  .player-number,
+  .player-position {
+    font-size: 1.0rem;
+    margin-bottom: 5px;
+}
+  @media (min-width: 768px) {
+    .roster-container {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      grid-gap: 20px;
+    }
+  }
+
+  @media (max-width: 767px) {
+    .roster-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      margin: 0 -10px;
+    }
+
+    .player {
+      width: calc(50% - 20px);
+      margin-bottom: 20px;
+    }
+  }
+
+  .player-name,
+  .player-number,
+  .player-position {
+    margin: 0;
+    padding: 5px;
   }

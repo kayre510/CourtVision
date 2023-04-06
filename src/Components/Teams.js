@@ -149,7 +149,7 @@ function Teams() {
       <h2>All Teams</h2>
       <div className="teams-container">
         {Object.entries(divisions).map(([division, teams]) => (
-          <div key={division} className="division">
+          <div key={division} className="card">
             <div className="division-name">{division}</div>
             {teams.map((team, index) => (
               <div key={index} className="team">
@@ -182,9 +182,9 @@ function Teams() {
                       />
                     )}
                   </div>
-                  <div className="player-name">{player.name}</div>
-                  <div className="player-number">{player.number}</div>
-                  <div className="player-position">{player.position}</div>
+                  <div className="player-name">Player: {player.name}</div>
+                  <div className="player-number">#: {player.number}</div>
+                  <div className="player-position">Position: {player.position}</div>
                 </div>
               ))}
             </div>
