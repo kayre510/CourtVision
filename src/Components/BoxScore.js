@@ -13,6 +13,7 @@ function Boxscore() {
         setBoxscore(response.data);
         const games = [];
         for (const [key, value] of Object.entries(response.data)) {
+          
           games.push([value]);
         }
         setGameInfo(games);

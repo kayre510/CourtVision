@@ -50,3 +50,9 @@
     padding-top: 40vh;
     font-size: 40px;
   }
+
+  .matchpoints {
+    display: flex;
+    justify-content: center;
+    font-family: "Roboto", arial, sans-serif;
+  }
