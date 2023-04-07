@@ -1,0 +1,3 @@
+Issues I ran into and how I resolved them:
+
+1. Had a difficult time figuring out how to implement team logos. Found a react package that has nba logos. In order to use the team logos, I needed to associate each logo with the teams abbreviation. Unfortunately the endpoint that I'm using to pull the league standings does not contain the team abbreviation. So I created a separate js file and put every team name and abbreviation in a hashmap and imported that hashmap into my component that renders the league standings. I updated the logic in my component so that when it maps out the data it also grabs the team names and abbreviation from hashmap

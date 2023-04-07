@@ -7,6 +7,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.3.4",
+    "bootstrap": "^5.2.3",
     "nba": "^4.15.0",
     "nba.js": "^0.6.1",
     "react": "^18.2.0",
@@ -18,7 +19,7 @@
   },
   "scripts": {
     "start": "npm-run-all --parallel start:python start:react",
-    "start:python": "py server.py",
+    "start:python": "python server.py",
     "start:react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

@@ -49,7 +49,11 @@ export const NavBar = () => {
             </li>
             <li>
               <NavLink
+<<<<<<< HEAD
                 className="standings link-item"
+=======
+                className="league-standings"
+>>>>>>> main
                 to="/standings"
                 aria-current="page"
               >
