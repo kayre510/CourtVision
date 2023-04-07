@@ -13,14 +13,13 @@ function OneVOne() {
   const [result, setResult] = useState("");
   const [searchValue, setSearchValue] = useState("");
   const [selectedValue, setSelectedValue] = useState(null);
-  const [parentState, setParentState] = useState("")
+  const [parentState, setParentState] = useState("");
   const searchRef = useRef();
   const categories = ["PTS", "REB", "AST"];
 
-
   const handlePlayer1Change = (event) => {
     setPlayer1(event.target.value);
-    setParentState(event.target.value)
+    setParentState(event.target.value);
   };
 
   const handlePlayer2Change = (event) => {
@@ -33,17 +32,18 @@ function OneVOne() {
   };
 
   const getPlayer = () => {
-      if (!searchValue) {
-        return playerPhoto;
-      }
-      return playerPhoto.filter((player) =>
-        player.name.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0)
-    };
+    if (!searchValue) {
+      return playerPhoto;
+    }
+    return playerPhoto.filter(
+      (player) =>
+        player.name.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
+    );
+  };
 
-    const onItemClick = (option) => {
-      setSelectedValue(option);
-    };
-
+  const onItemClick = (option) => {
+    setSelectedValue(option);
+  };
 
   useEffect(() => {
     setSearchValue("");
@@ -64,7 +64,6 @@ function OneVOne() {
           return { name, photo };
         });
         setPlayerPhoto(playersWithPhoto);
-
       })
       .catch((err) => {
         console.log(err);
@@ -85,7 +84,7 @@ function OneVOne() {
       )
       .then((response) => {
         const results = response.data.result;
-        console.log(results)
+        console.log(results);
         setResult(results);
       })
       .catch((err) => {
@@ -93,14 +92,12 @@ function OneVOne() {
       });
   }
 
-
-
   return (
-    <>
+    <div className="parent-container">
       <div className="input-container">
 
-        <div className="input-one">
-          {/* <input
+          <div className="input-one">
+            {/* <input
             type="text"
             value={handlePlayer1Change}
             placeholder="Search for a player"
@@ -115,9 +112,13 @@ function OneVOne() {
                 </select>
               </div>
             </div> */}
-            <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." onStateChange={setPlayer1} />
+            <Dropdown
+              playerPhoto={playerPhoto}
+              placeHolder="Select..."
+              onStateChange={setPlayer1}
+            />
+          </div>
 
-        </div>
         <div>
           {player1 && (
             <img
@@ -143,16 +144,20 @@ function OneVOne() {
               <option key={index}>{player.name}</option>
             ))}
           </select> */}
-          <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." isSearchable onStateChange={setPlayer2} />
+          <Dropdown
+            playerPhoto={playerPhoto}
+            placeHolder="Select..."
+            isSearchable
+            onStateChange={setPlayer2}
+          />
         </div>
       </div>
       <div className="stat-input">
-        <select onChange={statCategoryChange}>
+        <select className="stat-dropdown" onChange={statCategoryChange}>
           {categories.map((stat, index) => (
             <option key={stat}>{stat}</option>
           ))}
         </select>
-
       </div>
 
       <div className="face-off">
@@ -163,13 +168,13 @@ function OneVOne() {
           }}
           onChange={getResults()}
         >
-          Face Off
+          <span>FACE OFF</span>
         </button>
         {resultModal && (
-          <ResultModal closeResultModal={setResultModal}  result={result}/>
+          <ResultModal closeResultModal={setResultModal} result={result} />
         )}
       </div>
-    </>
+    </div>
   );
 }
 
