@@ -1,6 +1,7 @@
 import React from "react";
 
 export const ModalResults = ({ gameID, boxscoreinfo }) => {
+  console.log(boxscoreinfo)
   if (boxscoreinfo.length === 0) {
     return <p>Loading...</p>;
   }
