@@ -3,6 +3,7 @@ import axios from "axios";
 import "./OneVOne.css";
 import { ResultModal } from "./ResultModal";
 import { Dropdown } from "./Dropdown";
+import * as NBAIcons from 'react-nba-logos';
 
 function OneVOne() {
   const [player1, setPlayer1] = useState("");
@@ -12,37 +13,12 @@ function OneVOne() {
   const [resultModal, setResultModal] = useState(false);
   const [result, setResult] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  const [selectedValue, setSelectedValue] = useState(null);
-  const [parentState, setParentState] = useState("");
   const searchRef = useRef();
   const categories = ["PTS", "REB", "AST"];
-
-  const handlePlayer1Change = (event) => {
-    setPlayer1(event.target.value);
-    setParentState(event.target.value);
-  };
-
-  const handlePlayer2Change = (event) => {
-    setPlayer2(event.target.value);
-  };
 
   const statCategoryChange = (event) => {
     let value = event.target.value;
     setStatCategory(value);
-  };
-
-  const getPlayer = () => {
-    if (!searchValue) {
-      return playerPhoto;
-    }
-    return playerPhoto.filter(
-      (player) =>
-        player.name.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0
-    );
-  };
-
-  const onItemClick = (option) => {
-    setSelectedValue(option);
   };
 
   useEffect(() => {
@@ -58,10 +34,12 @@ function OneVOne() {
       .then((response) => {
         const playersWithPhoto = Object.values(response.data).map((player) => {
           let name = player.name;
+          let team = player.team;
+          console.log(team)
           const photo = player.photo
             ? require(`../assets/${player.photo}`)
             : null;
-          return { name, photo };
+          return { team, name, photo };
         });
         setPlayerPhoto(playersWithPhoto);
       })

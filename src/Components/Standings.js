@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import * as NBAIcons from 'react-nba-logos';
 import axios from 'axios';
 import {teamAbbreviation} from './TeamAbbreviation';
 

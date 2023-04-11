@@ -5,9 +5,6 @@ import axios from "axios";
 import { ModalResults } from "./ModalResults";
 
 export const BoxscoreCard = ({ gameInfo }) => {
-  const gameIDs = gameInfo.map((gameID) =>
-    gameID.map((id, index) => id.game_id)
-  );
 
 
   const [selectedGame, setSelectedGame] = useState(null);

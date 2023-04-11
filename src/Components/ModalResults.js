@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
+
 export const ModalResults = ({ gameID, boxscoreinfo }) => {
   if (boxscoreinfo.length === 0) {
     return <p>Loading...</p>;
