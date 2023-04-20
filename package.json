@@ -19,7 +19,7 @@
   },
   "scripts": {
     "start": "npm-run-all --parallel start:python start:react",
-    "start:python": "python server.py",
+    "start:python": "py server.py",
     "start:react": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",

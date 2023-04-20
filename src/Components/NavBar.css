@@ -1,35 +1,51 @@
 .nav-bar-container {
-    width: 100%;
-    font-weight: bold;
-    background-color: black;
-    display: flex;
-    justify-content: space-between;
-    font-family: "Roboto", arial, sans-serif;
-    background: black;
-    box-sizing: border-box 20px solid;
-    align-items: center;
-  }
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
 
+.nav-bar-container ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  flex: 1;
+}
 
-  .nav-bar-container ul {
-    display: flex;
-    padding: 0;
-    margin: 0;
-    justify-content: center;
-    flex-grow: 1;
-  }
+.nav-bar-container li {
+  margin-right: 2rem;
+  padding-right: 3em;
+}
 
-  .nav-bar-container li {
-    margin-right: 2rem;
-  }
+.logo-container {
+  position: fixed;
+padding-top: 10px;
+  left: 0;
+}
 
-  .basketball-logo {
-    width: 50px;
-    height: 50px;
-    border-radius: 180px;
-  }
+.basketball-logo {
+  width: 300px;
+  height: 150px;
+  margin-right: 2rem;
+}
 
-  .basketball-logo:hover {
-    transform:scale(1.2);
-    cursor: pointer;
-  }
+.basketball-logo:hover {
+  transform: scale(1.2);
+  cursor: pointer;
+}
+
+.link-item {
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+  flex: 1;
+  text-align: center;
+  font-family: "Roboto", arial, sans-serif;
+}
+
+.link-item:hover {
+  color: black;
+}

@@ -3,6 +3,7 @@ import axios from "axios";
 import "./OneVOne.css";
 import { ResultModal } from "./ResultModal";
 import { Dropdown } from "./Dropdown";
+import * as NBAIcons from "react-nba-logos";
 
 function OneVOne() {
   const [player1, setPlayer1] = useState("");
@@ -12,38 +13,13 @@ function OneVOne() {
   const [resultModal, setResultModal] = useState(false);
   const [result, setResult] = useState("");
   const [searchValue, setSearchValue] = useState("");
-  const [selectedValue, setSelectedValue] = useState(null);
-  const [parentState, setParentState] = useState("")
   const searchRef = useRef();
   const categories = ["PTS", "REB", "AST"];
-
-
-  const handlePlayer1Change = (event) => {
-    setPlayer1(event.target.value);
-    setParentState(event.target.value)
-  };
-
-  const handlePlayer2Change = (event) => {
-    setPlayer2(event.target.value);
-  };
 
   const statCategoryChange = (event) => {
     let value = event.target.value;
     setStatCategory(value);
   };
-
-  const getPlayer = () => {
-      if (!searchValue) {
-        return playerPhoto;
-      }
-      return playerPhoto.filter((player) =>
-        player.name.toLowerCase().indexOf(searchValue.toLowerCase()) >= 0)
-    };
-
-    const onItemClick = (option) => {
-      setSelectedValue(option);
-    };
-
 
   useEffect(() => {
     setSearchValue("");
@@ -58,13 +34,14 @@ function OneVOne() {
       .then((response) => {
         const playersWithPhoto = Object.values(response.data).map((player) => {
           let name = player.name;
+          let team = player.team;
+          let teamLogo = NBAIcons[team.toUpperCase()];
           const photo = player.photo
             ? require(`../assets/${player.photo}`)
             : null;
-          return { name, photo };
+          return { team, name, photo };
         });
         setPlayerPhoto(playersWithPhoto);
-
       })
       .catch((err) => {
         console.log(err);
@@ -85,20 +62,22 @@ function OneVOne() {
       )
       .then((response) => {
         const results = response.data.result;
-        console.log(results)
         setResult(results);
       })
       .catch((err) => {
         console.log(err);
       });
   }
-
-
+  // console.log(NBAIcons[playerPhoto.find((player, index) => player.name === player1 )?.team?.toUpperCase()])
+  function TeamLogo({ team }) {
+    console.log("TEAM", team);
+    const TeamIcon = NBAIcons[team.toUpperCase()];
+    return <TeamIcon size={500}/>;
+  }
 
   return (
-    <>
+    <div className="parent-container">
       <div className="input-container">
-
         <div className="input-one">
           {/* <input
             type="text"
@@ -106,7 +85,7 @@ function OneVOne() {
             placeholder="Search for a player"
             ref={searchRef}
           /> */}
-            {/* <div className="autocomplete">
+          {/* <div className="autocomplete">
               <div>
                 <select onChange={handlePlayer1Change}>
                   {getPlayer().map((player, index) => (
@@ -115,10 +94,17 @@ function OneVOne() {
                 </select>
               </div>
             </div> */}
-            <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." onStateChange={setPlayer1} />
-
+          <Dropdown
+            playerPhoto={playerPhoto}
+            placeHolder="Select..."
+            onStateChange={setPlayer1}
+          />
         </div>
-        <div>
+
+        <div className="player-photo-container">
+
+        {player1 && <TeamLogo team={playerPhoto.find((player, index) => player.name === player1)?.team } className="team-logo"/>}
+
           {player1 && (
             <img
               src={
@@ -126,33 +112,41 @@ function OneVOne() {
                   ?.photo
               }
               alt={`${player1}`}
+              className="player-photo"
             />
           )}
+
         </div>
-        <div className="input-two">
+        <div className="player-photo-container" >
+        {player2 && <TeamLogo team={playerPhoto.find((player, index) => player.name === player2)?.team } className="team-logo"/>}
           {player2 && (
             <img
               src={playerPhoto.find((player) => player.name === player2)?.photo}
               alt={`${player2}`}
+              className="player-photo-two"
             />
           )}
         </div>
-        <div>
+        <div className="input-two">
           {/* <select onChange={handlePlayer2Change}>
             {Object.values(playerPhoto).map((player, index) => (
               <option key={index}>{player.name}</option>
             ))}
           </select> */}
-          <Dropdown playerPhoto={playerPhoto} placeHolder="Select..." isSearchable onStateChange={setPlayer2} />
+          <Dropdown
+            playerPhoto={playerPhoto}
+            placeHolder="Select..."
+            isSearchable
+            onStateChange={setPlayer2}
+          />
         </div>
       </div>
       <div className="stat-input">
-        <select onChange={statCategoryChange}>
+        <select className="stat-dropdown" onChange={statCategoryChange}>
           {categories.map((stat, index) => (
             <option key={stat}>{stat}</option>
           ))}
         </select>
-
       </div>
 
       <div className="face-off">
@@ -163,13 +157,13 @@ function OneVOne() {
           }}
           onChange={getResults()}
         >
-          Face Off
+          <span>FACE OFF</span>
         </button>
         {resultModal && (
-          <ResultModal closeResultModal={setResultModal}  result={result}/>
+          <ResultModal closeResultModal={setResultModal} result={result} />
         )}
       </div>
-    </>
+    </div>
   );
 }
 

@@ -5,8 +5,6 @@ export const Dropdown = ({ playerPhoto, placeHolder, onStateChange}) => {
   const [showMenu, setShowMenu] = useState(false);
   const [selectedValue, setSelectedValue] = useState(null);
   const [searchValue, setSearchValue] = useState("");
-  const [player1, setPlayer1] = useState("")
-  const [childstate, setChildstate] = useState("")
   const searchRef = useRef();
 
   useEffect(() => {
@@ -25,12 +23,6 @@ export const Dropdown = ({ playerPhoto, placeHolder, onStateChange}) => {
     };
   });
 
-
-
-
-  const handlePlayer1Change = (event) => {
-    setPlayer1(event.target.value);
-  };
 
 
   const handleInputClick = (event) => {
@@ -91,7 +83,7 @@ export const Dropdown = ({ playerPhoto, placeHolder, onStateChange}) => {
                 <div className="search-box">
                     <input onChange={onSearch} value={searchValue} ref={searchRef} />
                     </div>
-            
+
 
           {getOptions().map((player) => (
             <div

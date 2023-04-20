@@ -5,19 +5,22 @@ import axios from "axios";
 import { ModalResults } from "./ModalResults";
 
 export const BoxscoreCard = ({ gameInfo }) => {
-  const gameIDs = gameInfo.map((gameID) =>
-    gameID.map((id, index) => id.game_id)
-  );
+
 
   const [selectedGame, setSelectedGame] = useState(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [gameID, setGameID] = useState("");
   const [boxscoreinfo, setBoxScoreInfo] = useState([]);
 
-  const handleGameClick = (index) => {
-    setSelectedGame(index);
+
+
+  const handleGameClick = (id) => {
+    console.log("ID", id)
+    setSelectedGame(id);
     setModalOpen(true);
-    setGameID(index);
+    setGameID(id);
+
+
   };
 
   const handleCloseModal = () => {
@@ -30,12 +33,12 @@ export const BoxscoreCard = ({ gameInfo }) => {
       axios
         .get(`http://127.0.0.1:5000/boxscore/${gameID}`)
         .then((response) => {
+          console.log(response.data)
 
       setBoxScoreInfo(response.data);
 
     })}
   }, [gameID]);
-
   return (
     <div className={`container ${modalOpen ? "blur" : ""}`}>
       {gameInfo.length === 0 ? (
@@ -64,8 +67,8 @@ export const BoxscoreCard = ({ gameInfo }) => {
                     <div className="card-body" key={innerIndex}>
                       <h3>{innerMatchup.game_date}</h3>
                       <h5 className="card-title">
-                        <WinningLogoComponent />{" "}
-                        {innerMatchup.winning_team_abbrev} VS.{" "}
+                        <WinningLogoComponent />
+                        {innerMatchup.winning_team_abbrev} VS.
                         {innerMatchup.losing_team_abbrev}
                         <LosingLogoComponnent />
                       </h5>
