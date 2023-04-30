@@ -1,0 +1,92 @@
+.title {
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
+
+}
+
+.text {
+    color: black;
+    text-shadow: 2px 2px 0px lightslategray ;
+    font-weight: bolder;
+}
+
+@media (min-width: 768px) {
+    .text {
+        font-size: 200px;
+    }
+}
+
+.article {
+    height: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.picture {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.court {
+    margin-top: 7vw;
+}
+
+.h1.vision {
+    font-size: 9vw;
+    position: absolute;
+    bottom: 20%;
+    right: 10%;
+  }
+
+  @media only screen and (max-width: 768px) {
+    .h1.vision {
+      font-size: 6vw;
+    }
+  }
+
+  @media only screen and (max-width: 480px) {
+    .h1.vision {
+      font-size: 4vw;
+    }
+  }
+/* @media (max-width: 1860px) {
+    .court {
+        font-size: 180px;
+    }
+}
+@media (max-width: 1100px) {
+    .court {
+        font-size: 100px;
+    }
+}
+
+@media (max-width: 920px) {
+    .court {
+        font-size: 80px;
+    }
+}
+
+@media (min-width: 360px) and (max-width: 767px) {
+    .court {
+        font-size: 20px;
+    }
+}
+*/
+
+@media (min-width: 200px) {
+    .court {
+      font-size: 8vw;
+      top: 10%;
+      left: 10%;
+    }
+  }
+
+@media (max-width: 740px) {
+    .court {
+      font-size: 4vw;
+      top: 20%;
+      left: 5%;
+    }
+  }

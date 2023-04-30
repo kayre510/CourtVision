@@ -1,5 +1,4 @@
 .nav-bar-container {
-  display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
@@ -47,5 +46,14 @@ padding-top: 10px;
 }
 
 .link-item:hover {
+  color: black;
+}
+
+.nav-items {
+  display:flex;
+  justify-content: center;
+}
+
+.basic-navbar-nav{
   color: black;
 }
