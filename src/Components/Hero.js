@@ -5,10 +5,25 @@ import DameTime from "../images/dame-time.jpg";
 function Hero() {
   return (
     <>
+      <article>
+        <img src={Steph} alt="background" className="img-fluid picture" />
+        <div className="court-container">
+          <h1
+            className="h1 court"
+            style={{ fontSize: "9vw", position: "absolute", top: "10%", left: "10%"  }}
+          >
+            COURT
+            <h1
+            className="h1 vision"
+            style={{ fontSize: "9vw", position: "absolute", top: '150%', left: "180%" }}
+          >
+            VISION
+          </h1>
+          </h1>
 
-        <img src={Steph} alt="background" className="img-fluid picture"/>
-        <h1 className="h1 header">COURT <br/> VISION</h1>
-     
+        </div>
+
+      </article>
     </>
   );
 }
