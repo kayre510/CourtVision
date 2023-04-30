@@ -3,7 +3,7 @@ import './Hero.css'
 function Hero() {
   return (
     <div className="title">
-      <h1 className='h1'>Court <br/>Vision</h1>
+      <h1 className="text-small text-md-up text">COURT <br/>VISION</h1>
 
     </div>
   );

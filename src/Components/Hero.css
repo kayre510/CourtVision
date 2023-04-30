@@ -1,7 +1,18 @@
 .title {
-font-family: 'Inter', sans-serif;
-display: flex;
-justify-content: center;
+    font-family: 'Inter', sans-serif;
+    display: flex;
+    justify-content: center;
 
 }
 
+.text {
+    color: black;
+    text-shadow: 2px 2px 0px lightslategray ;
+    font-weight: bolder;
+}
+
+@media (min-width: 768px) {
+    .text {
+        font-size: 200px;
+    }
+}
