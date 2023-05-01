@@ -98,3 +98,6 @@ def get_top_ten_players(season, category):
     league_leaders = LeagueLeaders(season=season, per_mode48="PerGame", stat_category_abbreviation=category)
     top_ten = league_leaders.get_data_frames()[0].head(10)
     return jsonify(top_ten.to_dict(orient='records'))
+
+if __name__ == '__main__':
+    app.run(port=8080)
