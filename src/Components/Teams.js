@@ -28,7 +28,7 @@ function Teams() {
   });
 
   return (
-    <div>
+    <div className="teams-header">
       <h2>All Teams</h2>
       <div className="teams-container">
         {Object.entries(divisions).map(([division, teams]) => (

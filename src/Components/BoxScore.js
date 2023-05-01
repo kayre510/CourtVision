@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import GameGrid, { BoxscoreCard } from "./BoxscoreCard";
-
+import "./BoxScore.css"
 function Boxscore() {
   const [boxscore, setBoxscore] = useState([]);
   const [gameInfo, setGameInfo] = useState([]);
@@ -13,7 +13,7 @@ function Boxscore() {
         setBoxscore(response.data);
         const games = [];
         for (const [key, value] of Object.entries(response.data)) {
-          
+
           games.push([value]);
         }
         setGameInfo(games);
@@ -22,7 +22,7 @@ function Boxscore() {
   }, []);
 
   return (
-    <div>
+    <div className="box-score-container">
       <BoxscoreCard gameInfo={gameInfo} />
     </div>
   );
