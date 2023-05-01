@@ -1,46 +1,46 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import Container from "react-bootstrap/Container";
+import logo from "../images/nbalogo.jpg"
 import "./NavBar.css";
-import ball from '../images/basketball.jpeg'
+
 export const NavBar = () => {
+
   return (
-    <div>
-      <nav>
-        <div className="nav-bar-container">
-        <img src={ball} alt="basketball-logo" className="basketball-logo"/>
-          <ul style={{ listStyleType: "none" }}>
-            <li>
-              <NavLink className="players" to="/players" aria-current="page">
+    <>
+
+      <Container>
+        <Navbar bg="white" expand="lg" className="gap-3 px-3" fixed="top">
+        <Navbar.Brand href="/"><img src={logo} placeholder="logo" className="img-fluid"/></Navbar.Brand>
+          <Navbar.Toggle aria-controls="basic-navbar-nav" />
+          <Navbar.Collapse
+            id="basic-navbar-nav"
+            className="justify-content-center "
+          >
+            <Nav className="flex-grow-1 justify-content-evenly  nav-stick">
+              <Nav.Link className="players link-item nav-link"  href="/players">
                 Players
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="head-to-head" to="/1on1" aria-current="page">
+              </Nav.Link>
+              <Nav.Link className="head-to-head link-item" href="/1on1">
                 1 v 1
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="boxscore" to="/boxscore" aria-current="page">
-                Boxscore
-              </NavLink>
-            </li>
-            <li>
-              <NavLink className="teams" to="/teams" aria-current="page">
+              </Nav.Link>
+              <Nav.Link className="boxscore link-item" href="/boxscore">
+                Box Score
+              </Nav.Link>
+              <Nav.Link className="teams link-item" href="/teams">
                 Teams
-              </NavLink>
-            </li>
-            <li>
-              <NavLink
-                className="league-standings"
-                to="/standings"
-                aria-current="page"
+              </Nav.Link>
+              <Nav.Link
+                className="league-standings link-item"
+                href="/standings"
               >
-                Standings
-              </NavLink>
-            </li>
-          </ul>
-        </div>
-      </nav>
-    </div>
+                League Standings
+              </Nav.Link>
+            </Nav>
+          </Navbar.Collapse>
+        </Navbar>
+      </Container>
+    </>
   );
 };

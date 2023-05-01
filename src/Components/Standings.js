@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import * as NBAIcons from 'react-nba-logos';
 import axios from 'axios';
 import {teamAbbreviation} from './TeamAbbreviation';
-
+import "./Standings.css"
 
 
 
@@ -27,7 +26,7 @@ function Standings() {
 
 
   return (
-    <div>
+    <div className="standings-container">
       <h2>Eastern Conference</h2>
       <table className='table'>
         <thead>

@@ -2,7 +2,6 @@ import React from "react";
 import "./ResultModal.css"
 
 export const ResultModal = (result) => {
-  console.log(result)
 
   const handleCompare = () => {
     window.location.reload()
