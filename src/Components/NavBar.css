@@ -58,10 +58,14 @@ padding-top: 10px;
 #nav-bar {
   position: absolute;
 }
-/* 
+/*
 .nav-stick {
   position: absolute;
   justify-content: space-between;
   top: 10vw;
   z-index: 999;
 } */
+
+#logo {
+  width: 50%;
+}

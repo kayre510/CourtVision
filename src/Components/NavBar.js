@@ -2,6 +2,7 @@ import React from "react";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 import Container from "react-bootstrap/Container";
+import logo from "../images/nbalogo.jpg"
 import "./NavBar.css";
 
 export const NavBar = () => {
@@ -11,6 +12,7 @@ export const NavBar = () => {
 
       <Container>
         <Navbar bg="white" expand="lg" className="gap-3 px-3" fixed="top">
+        <Navbar.Brand href="/"><img src={logo} placeholder="logo" className="img-fluid"/></Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse
             id="basic-navbar-nav"

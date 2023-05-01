@@ -35,7 +35,7 @@ function OneVOne() {
         const playersWithPhoto = Object.values(response.data).map((player) => {
           let name = player.name;
           let team = player.team;
-       
+
           const photo = player.photo
             ? require(`../assets/${player.photo}`)
             : null;
@@ -70,7 +70,6 @@ function OneVOne() {
   }
   // console.log(NBAIcons[playerPhoto.find((player, index) => player.name === player1 )?.team?.toUpperCase()])
   function TeamLogo({ team }) {
-    console.log("TEAM", team);
     const TeamIcon = NBAIcons[team.toUpperCase()];
     return <TeamIcon size={500}/>;
   }

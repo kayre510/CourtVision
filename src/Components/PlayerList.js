@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-
+import "./PlayerList.css"
 function PlayerList() {
   const [players, setPlayers] = useState([]);
   const [playerPhoto, setPlayerPhotos] = useState([]);
@@ -11,7 +11,6 @@ function PlayerList() {
     axios
       .get("http://127.0.0.1:5000/players")
       .then((response) => {
-        console.log(response.data)
         const playersArray = Object.values(response.data);
         setPlayers(playersArray);
 
@@ -36,8 +35,8 @@ function PlayerList() {
   };
 
   return (
-    <div>
-      <h1>NBA Players</h1>
+    <div className="list-container">
+      <h1 className="player-head">NBA Players</h1>
       <form>
         <label htmlFor="search">Search for a player:</label>
         <input
