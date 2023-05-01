@@ -35,7 +35,7 @@ function OneVOne() {
         const playersWithPhoto = Object.values(response.data).map((player) => {
           let name = player.name;
           let team = player.team;
-          let teamLogo = NBAIcons[team.toUpperCase()];
+       
           const photo = player.photo
             ? require(`../assets/${player.photo}`)
             : null;

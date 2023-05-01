@@ -1,7 +1,7 @@
 import React from "react";
 import "./Hero.css";
 import Steph from "../images/steph-curry.jpg";
-import DameTime from "../images/dame-time.jpg";
+
 function Hero() {
   return (
     <>
@@ -15,7 +15,7 @@ function Hero() {
             COURT
             <h1
             className="h1 vision"
-            style={{ fontSize: "9vw", position: "absolute", top: '150%', left: "180%" }}
+            style={{ fontSize: "9vw", position: "absolute", top: '110%', left: "180%" }}
           >
             VISION
           </h1>

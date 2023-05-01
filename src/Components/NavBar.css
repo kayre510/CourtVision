@@ -43,6 +43,7 @@ padding-top: 10px;
   flex: 1;
   text-align: center;
   font-family: "Roboto", arial, sans-serif;
+  font-weight: bold;
 }
 
 .link-item:hover {
@@ -54,6 +55,13 @@ padding-top: 10px;
   justify-content: center;
 }
 
-.basic-navbar-nav{
-  color: black;
+#nav-bar {
+  position: absolute;
 }
+/* 
+.nav-stick {
+  position: absolute;
+  justify-content: space-between;
+  top: 10vw;
+  z-index: 999;
+} */
