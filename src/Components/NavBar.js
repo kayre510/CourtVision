@@ -10,28 +10,28 @@ export const NavBar = () => {
         <img src={ball} alt="basketball-logo" className="basketball-logo"/>
           <ul style={{ listStyleType: "none" }}>
             <li>
-              <NavLink className="players" to="/players" aria-current="page">
+              <NavLink className="link-item" to="/players" aria-current="page">
                 Players
               </NavLink>
             </li>
             <li>
-              <NavLink className="head-to-head" to="/1on1" aria-current="page">
+              <NavLink className="link-item" to="/1on1" aria-current="page">
                 1 v 1
               </NavLink>
             </li>
             <li>
-              <NavLink className="boxscore" to="/boxscore" aria-current="page">
+              <NavLink className="link-item" to="/boxscore" aria-current="page">
                 Boxscore
               </NavLink>
             </li>
             <li>
-              <NavLink className="teams" to="/teams" aria-current="page">
+              <NavLink className="link-item" to="/teams" aria-current="page">
                 Teams
               </NavLink>
             </li>
             <li>
               <NavLink
-                className="league-standings"
+                className="link-item"
                 to="/standings"
                 aria-current="page"
               >

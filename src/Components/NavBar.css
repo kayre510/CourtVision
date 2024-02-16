@@ -38,3 +38,12 @@
     transform:scale(1.2);
     cursor: pointer;
   }
+.link-item {
+  text-decoration: none;
+  color:black
+}
+
+ .link-item:hover {
+  color: black;
+
+}
