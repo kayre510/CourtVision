@@ -3,6 +3,9 @@ import axios from "axios";
 import {teamAbbreviation} from "./TeamAbbreviation";
 import "./Teams.css";
 
+
+// My initial thought process behind this component was focused on achieving core functionality, fetching NBA team data from an API and organizing the data by divisions to display on the UI. I wanted to ensure that users could see all teams categorized neatly, which is why I used a 'useEffect' hook to fetch data on component mount and then processed the data into a divisions object for easier rendering. Looking back at this code, one area I could have improved on would be to enhance error handling. Currently the code logs errors to the console, but from a user experience perspective it would have been better to display a loading indicator or error message on the UI if the data didn't load properly. 
+
 function Teams() {
   const [teams, setTeams] = useState([]);
 
